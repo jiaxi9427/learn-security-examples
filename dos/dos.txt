@@ -1,2 +1,16 @@
 - Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+The code introduces an exception handling mechanism that uses try-catch blocks to catch and handle possible errors.
+In the catch block, the code returns a generic error response of "Bad input" instead of exposing a detailed error message. 
+This avoids revealing sensitive information to attackers.
+
+The introduction of exception handling mechanism can prevent application crashes or errors caused by malicious input, 
+and improve application stability and availability.
+Returning a generic error response can limit an attacker's access to sensitive information, 
+such as database structures or query statements, thereby reducing the risk of information disclosure.
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+I have the following suggestions: Input Validation and Sanitization, 
+Parameterized Queries or ORM, Least Privilege Principle, 
+Rate Limiting and Monitoring, Regular Security Audits and Updates.

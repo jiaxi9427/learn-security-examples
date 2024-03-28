@@ -1,0 +1,17 @@
+Briefly explain the vulnerability and why the secure version prevents the vulnerability:
+
+Vulnerability:
+The code had an XSS vulnerability due to lack of input validation and sanitization. 
+Attackers could inject malicious scripts through the name field, which would be executed in other users' browsers.
+
+Prevention in Secure Version:
+The secure version introduces an escapeHTML function to sanitize user input by replacing special characters 
+with HTML entity encodings. This prevents injected scripts from being executed, effectively mitigating the XSS vulnerability.
+
+Which CIA property does tampering violate?
+
+Confidentiality: XSS attacks can allow attackers to steal sensitive information, such as user credentials or session tokens, 
+by injecting malicious scripts that send data to unauthorized parties. This breaches the confidentiality of the application and its users' data.
+
+Integrity: XSS attacks can manipulate the rendered content of the application, potentially altering the displayed information or 
+deceiving users into taking unintended actions. This compromises the integrity of the application and the trust users place in it.

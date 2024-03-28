@@ -1,1 +1,20 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+Briefly explain the vulnerability and why the secure version prevents the vulnerability:
+Vulnerability: In insecure.js, the httpOnly option of the cookie is set to false, which means that client-side 
+JavaScript can access and modify the session ID, increasing the risk of session hijacking.
+Prevention: In secure.js, by setting the httpOnly option of the cookie to true, it ensures that client-side JavaScript cannot 
+access or modify the session ID, reducing the risk of session hijacking.
+
+Vulnerability: In insecure.js, the secret value of the session is hardcoded in the code, which is not a secure practice.
+Prevention: In secure.js, the secret value of the session is passed through a command-line argument, allowing it to be 
+stored in an environment variable or configuration file, enhancing security.
+
+Vulnerability: In insecure.js, the sameSite option of the cookie is not set, making the application vulnerable to CSRF attacks. 
+Prevention: In secure.js, by setting the sameSite option of the cookie to true, it ensures that the cookie can only be sent in
+ requests originating from the same site, rather than in cross-site requests, helping to prevent CSRF attacks.
+
+Which CIA properties do you think Spoofing violates?
+
+spoofing/secure.js addresses some key vulnerabilities found in spoofing/insecure.js through secure cookie settings and session secret management. 
+Spoofing attacks primarily violate confidentiality and integrity, and in some cases, can also impact availability.
