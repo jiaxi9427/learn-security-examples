@@ -1,2 +1,26 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+
+Request Logging: 
+By logging each request, including method, URL, and the requester's IP address, 
+the application creates an audit trail that can be used to trace actions back to their source. 
+This makes it more difficult for users to deny their activities on the application.
+
+Simulated User Authentication: 
+While only a placeholder, this represents a step towards verifying the identity of users performing sensitive actions. 
+In practice, implementing actual authentication mechanisms (e.g., using passwords, tokens) would ensure 
+that only legitimate users can perform certain actions, further tying those actions to specific individuals.
+
+Error Logging: 
+Capturing and logging errors serve a dual purpose of improving application stability 
+and recording potential malicious activities that result in exceptions.
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+Implement Strong Authentication: 
+Utilize robust authentication methods like Multi-Factor Authentication (MFA) 
+to ensure that the user's identity is accurately verified before allowing access to sensitive functions.
+
+Digital Signatures: 
+Implement digital signatures for critical actions within the application. 
+By requiring data to be signed with the user's private key, you can ensure non-repudiation, 
+as only the user with the corresponding private key could have performed the action.

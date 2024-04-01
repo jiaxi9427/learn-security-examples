@@ -1,0 +1,25 @@
+Why the Secure Version Prevents the Vulnerability?
+The revised code snippet mitigates this vulnerability by introducing session-based authentication and role-based authorization checks:
+
+Session-based Authentication: It ensures that a user must be logged in to perform role updates. 
+The session stores the userId after a successful login, and this session ID is checked before allowing 
+access to sensitive functionalities. This means an attacker cannot simply send a request with a modified 
+userId to escalate privileges without first compromising a legitimate session.
+
+Role-based Authorization: Even if an attacker manages to hijack a session, 
+the application checks the role of the logged-in user stored in the session before allowing role updates. 
+Only users with an admin role can change roles, which adds an extra layer of security.
+
+Additional Security Mechanisms:
+
+Two-Factor Authentication (2FA): 
+Requires users to provide two forms of identification before being granted access. 
+This could significantly reduce the risk of session hijacking.
+
+Regular Session Expiration and Renewal: 
+Automatically expire sessions after a short period of inactivity and require users to re-authenticate. 
+This limits the window of opportunity for an attacker to exploit a valid session.
+
+Role Change Verification: 
+Implement additional verification steps when a user's role is changed, 
+such as requiring admin password re-entry or sending a confirmation to another admin.
